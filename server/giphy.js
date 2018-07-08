@@ -5,9 +5,9 @@ const router = express.Router()
 
 router.use(express.json())
 
-router.get('/subreddit/:subreddit', (req, res) => {
+router.get('/gif/:gif', (req, res) => {
   request
-    .get(`http://www.reddit.com/r/${req.params.subreddit}.json`)
+    .get(`https://giphy.com/search/${req.params.gif}.json`)
     .end((err, result) => {
       if (err) {
         res.status(500).send(err.message)
@@ -16,8 +16,5 @@ router.get('/subreddit/:subreddit', (req, res) => {
       }
     })
 })
-
-
-
 
 module.exports = router
